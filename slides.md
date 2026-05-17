@@ -170,6 +170,61 @@ Governance + empathy, without slowing down
 
 ---
 
+## Three Waves of AI-Assisted Development
+
+<div class="columns">
+
+<div>
+
+### 🌊 Wave 1 — Pair Programmer
+*Inline suggestions and autocomplete*
+**Coding what you were going to code anyway, just faster.**
+
+<br>
+
+### 🌊 Wave 2 — Peer Programmer
+*Synchronous agent mode*
+**The agent takes a bounded task while you code together in real time.**
+
+</div>
+
+<div>
+
+### 🌊 Wave 3 — Asynchronous Agentic SDLC
+*Multi-agent workflows · autonomous task execution*
+**Agents execute work across the delivery lifecycle while humans orchestrate, review, and own outcomes.**
+
+<br>
+
+> **Key message:** Each wave expands scope —
+> from *code tokens* → to *tasks* → to *end-to-end outcomes*.
+
+</div>
+
+</div>
+
+---
+
+## Wave 3 Changes the Operating Model
+
+- **Wave 1** helped me *type* faster.
+- **Wave 2** helped me *think and build* in parallel.
+- **Wave 3** changes the *operating model*: agents execute work while we **orchestrate, review, and own outcomes**.
+
+<br>
+
+### This is why *humans at the heart* matters more now than ever.
+
+- As autonomy rises, **accountability doesn't disappear — it concentrates.**
+- **Rule Zero:** *You own the code.*
+
+<br>
+
+> In Wave 3, human-in-the-loop is no longer a nice-to-have UX pattern —
+> it is the **control system** for safe, scalable delivery.
+
+---
+
 <!-- Divider slide -->
 <!-- _class: lead center -->
 
