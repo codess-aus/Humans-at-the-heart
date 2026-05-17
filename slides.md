@@ -2,117 +2,234 @@
 marp: true
 theme: default
 paginate: true
-backgroundColor: #0d1117
-color: #e6edf3
+backgroundColor: "#000000"
+color: "#FFFFFF"
 style: |
+  :root {
+    --teal:    #2DD4BF;
+    --teal-2:  #5EEAD4;
+    --teal-3:  #14B8A6;
+    --teal-d:  #0D9488;
+    --mute:    #94A3B8;
+    --line:    #134E4A;
+    --panel:   #0A0F0F;
+  }
   section {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    padding: 48px 60px;
+    background: #000000;
+    color: #FFFFFF;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 22px;
+    line-height: 1.45;
+    padding: 56px 72px;
   }
   h1 {
-    color: #248086;
-    font-size: 2.2em;
-    border-bottom: 2px solid #099c84;
-    padding-bottom: 12px;
-  }
-  h2 {
-    color: #502e8f;
-    font-size: 1.6em;
-  }
-  h3 {
-    color: #5a30f1;
-    font-size: 1.2em;
-  }
-  strong {
-    color: #1ed665;
-  }
-  em {
-    color: #02062b;
-  }
-  blockquote {
-    border-left: 4px solid #58a6ff;
-    color: #8b949e;
-    padding-left: 16px;
-    font-style: italic;
-    font-size: 1.1em;
-  }
-  ul li, ol li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-  }
-  .columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  section.lead h1 {
-    font-size: 2.8em;
+    color: var(--teal);
+    font-size: 54px;
+    line-height: 1.1;
+    margin: 0 0 18px 0;
+    letter-spacing: -0.5px;
     border: none;
   }
-  section.center {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  h2 {
+    color: var(--teal-2);
+    font-size: 36px;
+    line-height: 1.15;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.3px;
+  }
+  h3 {
+    color: var(--teal-2);
+    font-size: 24px;
+    margin: 0 0 8px 0;
+  }
+  h4 {
+    color: var(--teal-3);
+    font-size: 20px;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+  p, li { color: #FFFFFF; font-size: 22px; }
+  strong { color: var(--teal-2); font-weight: 600; }
+  em { color: var(--mute); font-style: normal; }
+  a, a:visited { color: var(--teal-2); }
+  blockquote {
+    border-left: 4px solid var(--teal);
+    color: #FFFFFF;
+    padding: 8px 18px;
+    margin: 18px 0;
+    font-size: 24px;
+    font-style: normal;
+    background: rgba(45, 212, 191, 0.05);
+  }
+  code, pre { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; font-size: 19px; }
+  pre {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 18px;
+    color: var(--teal-2);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+  }
+  th {
+    color: var(--teal);
+    text-align: left;
+    border-bottom: 2px solid var(--teal-d);
+    padding: 10px 12px;
+    font-size: 20px;
+  }
+  td {
+    color: #FFFFFF;
+    border-bottom: 1px solid #1f2937;
+    padding: 10px 12px;
+    vertical-align: top;
+  }
+  ul, ol { margin: 0 0 10px 0; padding-left: 22px; }
+  ul li, ol li { margin-bottom: 8px; }
+  hr { border: 0; border-top: 1px solid var(--teal-d); margin: 20px 0; }
+  section::after { color: var(--teal-d); font-size: 16px; }
+
+  /* Layout helpers */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 18px; }
+  .grid-13 { display: grid; grid-template-columns: 1fr 3fr; gap: 32px; }
+  .grid-31 { display: grid; grid-template-columns: 3fr 1fr; gap: 32px; }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .card-soft {
+    background: rgba(45,212,191,0.04);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
   }
   .pill {
     display: inline-block;
-    background: #21262d;
-    border: 1px solid #30363d;
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 0.85em;
-    margin: 4px;
+    color: var(--teal);
+    border: 1px solid var(--teal-d);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 18px;
+    margin-right: 6px;
   }
+  .kbd {
+    display: inline-block;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2px 8px;
+    color: var(--teal-2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 19px;
+  }
+  .big { font-size: 88px; color: var(--teal); line-height: 1; letter-spacing: -2px; font-weight: 700; }
+  .huge { font-size: 120px; color: var(--teal); line-height: 1; letter-spacing: -3px; font-weight: 700; }
+  .label { color: var(--teal-3); text-transform: uppercase; letter-spacing: 2px; font-size: 18px; }
+  .muted { color: var(--mute); }
+  .center { text-align: center; }
+
+  section.lead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 80px;
+  }
+  section.lead h1 { font-size: 72px; }
+  section.divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px;
+  }
+  section.divider .label { color: var(--teal); font-size: 22px; }
+  section.divider h1 { font-size: 84px; line-height: 1; }
+  section.quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 120px;
+  }
+  section.quote p { font-size: 36px; line-height: 1.3; color: #FFFFFF; }
+  section.quote .attrib { color: var(--teal-2); font-size: 22px; margin-top: 24px; }
 ---
 
-<!-- _class: lead center -->
+<!-- _class: lead -->
 
-# Trustworthy AI
-## Keeping Humans at the Heart of Intelligent Systems
+<span class="label">Keynote · 2026</span>
+
+# Humans at the Heart
+
+## Building Software in the Age of Agents
 
 <br>
 
-**SlashNew Conf · 2026**
-
----
-
-<!-- _class: center -->
-
-# The question is no longer *whether* machines will assist us.
+<span class="pill">Agentic SDLC</span>
+<span class="pill">Human-in-the-Loop</span>
+<span class="pill">Rule Zero</span>
 
 <br>
 
-> "The question is how we ensure they do so **responsibly**."
+**[Speaker Name]** · *[Title · Organisation]*
 
 ---
 
-## A Tale of Two Futures
+<!-- _class: quote -->
 
-<div class="columns">
+> Last night, while you were sleeping, an agent opened a pull request against your main branch, ran the tests, and tagged you for review.
 
-<div>
+<div class="attrib">It compiled. It passed CI. It even wrote the changelog.<br>The only question left is — <strong>whose name appears next to that commit?</strong></div>
 
-### 🤖 AI Without Trust
+---
 
-- Opaque decisions nobody can explain
-- Bias baked silently into outcomes
-- Human judgment replaced, not amplified
-- Accountability gaps at every level
-- Erosion of user confidence
+<!-- _class: divider -->
+
+<span class="label">The shift</span>
+
+# The question
+# has changed.
+
+---
+
+## Three years ago we asked:
+
+<div class="grid-2">
+
+<div class="card-soft">
+
+<h4>Then</h4>
+
+<h2 style="color:#FFFFFF">"Can AI help me code?"</h2>
+
+<br>
+
+A productivity question.
+A tooling question.
+A *me-and-my-editor* question.
 
 </div>
 
-<div>
+<div class="card">
 
-### 🤝 AI With Trust
+<h4>Now</h4>
 
-- Transparent reasoning, auditable trails
-- Fairness built in from the start
-- Human oversight at every critical loop
-- Clear accountability chains
-- Technology people actually *believe in*
+<h2>"What happens when agents ship code without me?"</h2>
+
+<br>
+
+A governance question.
+An accountability question.
+A *me-and-my-team-and-the-world* question.
 
 </div>
 
@@ -120,28 +237,100 @@ style: |
 
 ---
 
-## About Me
+## This isn't a "Responsible AI" talk.
 
-<div class="columns">
+<br>
 
-<div>
+**It's a talk about how we ship software now.**
 
-**[Speaker Name]**
+<br>
+
+- Autonomous coding agents are *already* opening pull requests against production repos.
+- Multi-agent workflows are *already* triaging issues, writing tests, generating release notes — every night, on schedule.
+- The Model Context Protocol has turned every API into something an agent can drive.
+
+<br>
+
+> The interesting work isn't *whether* to adopt this.
+> It's *how* to stay in command of it.
+
+---
+
+## About me
+
+<div class="grid-2">
+
+<div class="card-soft">
+
+<h4>Speaker</h4>
+
+**[Name]**
 *[Title · Organisation]*
 
-- AI practitioner & advocate for human-centred design
-- Working at the intersection of responsible AI and software engineering
-- Passionate about building systems that earn trust
+- Building and breaking AI-assisted dev workflows since the first wave
+- Worked alongside teams shipping with coding agents in production
+- I care about engineering that future humans will thank us for
+
+</div>
+
+<div class="card-soft">
+
+<h4>What I've watched up close in 2025–2026</h4>
+
+- Teams 10x their throughput — and 10x their incidents
+- Audit logs where nobody could explain who approved what
+- And teams that got this *beautifully* right
+
+</div>
+
+</div>
+
+---
+
+## The journey today
+
+<div class="grid-2">
+
+<div>
+
+<h4>Part 1 · The Three Waves</h4>
+
+From pair → peer → fleet.
+How the operating model of software has quietly inverted.
+
+<br>
+
+<h4>Part 2 · Rule Zero</h4>
+
+You own the code.
+You appear in the audit log.
+Accountability is the price of autonomy.
+
+<br>
+
+<h4>Part 3 · The AI-Native SDLC</h4>
+
+What actually changes in your day, your repo, your pipeline.
 
 </div>
 
 <div>
 
-**What I've seen in the wild:**
+<h4>Part 4 · Human-in-the-Loop as a Control System</h4>
 
-- AI systems that optimised for the metric, not the mission
-- Teams shipping "magic" they couldn't explain to users
-- And teams that got it beautifully right
+Approval gates, sandboxes, traces, evals — the control plane for safe autonomy.
+
+<br>
+
+<h4>Part 5 · Trustworthy Agentic AI</h4>
+
+Explainability, reliability, inclusivity — redrawn for agents.
+
+<br>
+
+<h4>Part 6 · The Fleet</h4>
+
+Your new job: conductor, not typist.
 
 </div>
 
@@ -149,55 +338,227 @@ style: |
 
 ---
 
-<!-- _class: center -->
+<!-- _class: divider -->
 
-## Today's Journey
+<span class="label">Part 1</span>
 
-<br>
-
-**1 · Human-in-the-Loop Design**
-Why oversight isn't optional
-
-**2 · Principles of Trustworthy AI**
-Explainability · Reliability · Inclusivity
-
-**3 · Real-world Practices**
-Governance + empathy, without slowing down
-
-<br>
-
-*45 minutes · actionable takeaways · no hype*
+# Three Waves
+# of AI-Assisted
+# Development
 
 ---
 
-## Three Waves of AI-Assisted Development
+## The arc, at a glance
 
-<div class="columns">
+<div class="grid-3">
+
+<div class="card">
+
+<span class="label">Wave 1 · 2021–2023</span>
+
+<h2 style="font-size:30px">Pair Programmer</h2>
+
+Inline suggestions.
+Autocomplete on caffeine.
+
+<br>
+
+**You code what you were going to code anyway — just faster.**
+
+</div>
+
+<div class="card">
+
+<span class="label">Wave 2 · 2024</span>
+
+<h2 style="font-size:30px">Peer Programmer</h2>
+
+Synchronous agent mode.
+The agent takes a bounded task while you build alongside it.
+
+<br>
+
+**You and the agent in the same flow, same minute.**
+
+</div>
+
+<div class="card">
+
+<span class="label">Wave 3 · 2025–2026</span>
+
+<h2 style="font-size:30px">Async Agentic SDLC</h2>
+
+Multi-agent workflows.
+Autonomous task execution.
+Fleet-scale delivery.
+
+<br>
+
+**You guide a fleet. Outcomes ship while you sleep.**
+
+</div>
+
+</div>
+
+<br>
+
+> Each wave expands scope — from **tokens**, to **tasks**, to **end-to-end outcomes.**
+
+---
+
+## Wave 1 · Pair Programmer
+
+<div class="grid-2">
 
 <div>
 
-### 🌊 Wave 1 — Pair Programmer
-*Inline suggestions and autocomplete*
-**Coding what you were going to code anyway, just faster.**
+<h4>What it felt like</h4>
+
+- Ghost text at the end of your line.
+- Boilerplate evaporated.
+- Tests written one stub at a time.
+- You were always in the driver's seat — keyboard hot, eyes on every token.
 
 <br>
 
-### 🌊 Wave 2 — Peer Programmer
-*Synchronous agent mode*
-**The agent takes a bounded task while you code together in real time.**
+<h4>The unit of work</h4>
+
+**A line. A function. A loop body.**
+
+</div>
+
+<div class="card-soft">
+
+<h4>Trust model</h4>
+
+- Suggestion → accept / reject
+- No memory of the wider repo
+- No actions taken on your behalf
+- No way to break anything you didn't see
+
+<br>
+
+<h4>The implicit deal</h4>
+
+> "I propose. You dispose."
+
+</div>
+
+</div>
+
+---
+
+## Wave 2 · Peer Programmer
+
+<div class="grid-2">
+
+<div>
+
+<h4>What changed</h4>
+
+- The agent moved from your *cursor* to your *project*.
+- It could read the repo, run a terminal, edit multiple files, apply a refactor — *with you watching*.
+- Synchronous. Bounded. You stayed in the conversation.
+
+<br>
+
+<h4>The unit of work</h4>
+
+**A task. A feature slice. A bug.**
+
+</div>
+
+<div class="card-soft">
+
+<h4>Trust model</h4>
+
+- Iterative — propose, run, observe, correct
+- Tool calls visible step by step
+- You're still the one hitting ⏎ on changes that matter
+- The session ends when you walk away
+
+<br>
+
+<h4>The implicit deal</h4>
+
+> "We're pairing. I'm just very fast."
+
+</div>
+
+</div>
+
+---
+
+## Wave 3 · Asynchronous Agentic SDLC
+
+<div class="grid-2">
+
+<div>
+
+<h4>What just changed</h4>
+
+- Agents now **leave the editor**.
+- They run on schedules, on events, on issue assignment.
+- They open pull requests against your repo while you're at lunch.
+- They orchestrate sub-agents: research, plan, implement, test, document, review.
+
+<br>
+
+<h4>The unit of work</h4>
+
+**An outcome. A backlog item. A release.**
+
+</div>
+
+<div class="card">
+
+<h4>Trust model</h4>
+
+- The agent runs in a sandboxed cloud environment
+- It produces an artefact: a **pull request**, an **issue triage**, a **report**
+- Humans gate at the merge boundary — not at every keystroke
+- Audit logs and traces are the record of work
+
+<br>
+
+<h4>The new implicit deal</h4>
+
+> "I'll do the work. You decide if it ships."
+
+</div>
+
+</div>
+
+---
+
+## What actually exists in Wave 3 today
+
+<div class="grid-2">
+
+<div>
+
+<h4>Autonomous coding agents</h4>
+
+- **GitHub Copilot coding agent** — assign an issue, get a draft PR back from a cloud sandbox
+- Background coding agents across IDE vendors
+- Long-running, terminal-native CLI agents
+
+<h4>Agentic workflows</h4>
+
+- Markdown-defined repository automations
+- Run inside GitHub Actions with least-privilege permissions and **safe-outputs**
+- Triggered by schedule, event, or `/slash` command
 
 </div>
 
 <div>
 
-### 🌊 Wave 3 — Asynchronous Agentic SDLC
-*Multi-agent workflows · autonomous task execution*
-**Agents execute work across the delivery lifecycle while humans orchestrate, review, and own outcomes.**
+<h4>The shared agent fabric</h4>
 
-<br>
-
-> **Key message:** Each wave expands scope —
-> from *code tokens* → to *tasks* → to *end-to-end outcomes*.
+- **AGENTS.md** — an open, cross-tool spec; the "README for agents"
+- **Model Context Protocol (MCP)** — the standard contract between agents and tools, with sandboxed transports, per-client consent, OAuth 2.1, audit trails
+- **MCP Registry** — discoverable, governed catalogue of agent-callable capabilities
+- **Skills / hooks / sub-agents** — composable units of agent behaviour
 
 </div>
 
@@ -205,355 +566,942 @@ Governance + empathy, without slowing down
 
 ---
 
-## Wave 3 Changes the Operating Model
+## The operating model has inverted
 
-- **Wave 1** helped me *type* faster.
-- **Wave 2** helped me *think and build* in parallel.
-- **Wave 3** changes the *operating model*: agents execute work while we **orchestrate, review, and own outcomes**.
+<div class="grid-3">
 
-<br>
+<div class="card-soft">
 
-### This is why *humans at the heart* matters more now than ever.
+<h4>Wave 1</h4>
 
-- As autonomy rises, **accountability doesn't disappear — it concentrates.**
-- **Rule Zero:** *You own the code.*
+Helped you **type** faster.
 
 <br>
 
-> In Wave 3, human-in-the-loop is no longer a nice-to-have UX pattern —
-> it is the **control system** for safe, scalable delivery.
+*Linear leverage.*
+
+</div>
+
+<div class="card-soft">
+
+<h4>Wave 2</h4>
+
+Helped you **think and build** in parallel.
+
+<br>
+
+*Parallel leverage.*
+
+</div>
+
+<div class="card">
+
+<h4>Wave 3</h4>
+
+Changes the **operating model**:
+agents execute, humans orchestrate, review, and own outcomes.
+
+<br>
+
+*Compound leverage.*
+
+</div>
+
+</div>
+
+<br>
+
+> As autonomy rises, **accountability concentrates** — it does not disappear.
 
 ---
 
-<!-- Divider slide -->
-<!-- _class: lead center -->
+<!-- _class: divider -->
 
-# Part 1
-## Human-in-the-Loop Design
+<span class="label">Part 2</span>
 
-*Why human oversight is critical for mitigating bias and ensuring ethical outcomes*
+# Rule Zero
 
 ---
 
-## What Is Human-in-the-Loop?
+<!-- _class: lead -->
 
-A design pattern where **human judgment is embedded** in the AI decision pipeline — not bolted on at the end.
+<h1 style="font-size:120px;line-height:1;">You own
+<br>the code.</h1>
 
 <br>
 
-| Mode | Description | When to use |
+<p style="font-size:30px;color:#FFFFFF;">Agents may code at your direction.
+<br>You are accountable. You are responsible.
+<br>You appear in the audit logs alongside the agent that did the work.</p>
+
+---
+
+## Rule Zero, said three ways
+
+<div class="grid-3">
+
+<div class="card">
+
+<h4>For the engineer</h4>
+
+The agent's PR has your reviewer name on it.
+The blame line at 2am will trace to a human.
+**Review like you mean it.**
+
+</div>
+
+<div class="card">
+
+<h4>For the manager</h4>
+
+You can scale the work.
+You cannot delegate the accountability.
+**The squad still owns the service.**
+
+</div>
+
+<div class="card">
+
+<h4>For the organisation</h4>
+
+Regulators, customers, and incident reports do not accept "the agent did it."
+**Provenance is a feature, not a footnote.**
+
+</div>
+
+</div>
+
+---
+
+## The accountability compass
+
+<div class="grid-13">
+
+<div>
+
+<div class="big">↑</div>
+
+</div>
+
+<div>
+
+<h4>Autonomy rises ↑</h4>
+
+- Agents take larger units of work
+- More tool access, fewer keystrokes
+- More work done while you're offline
+
+<h4>Accountability concentrates → not disappears</h4>
+
+- The reviewer's signature carries more weight, not less
+- The policy author's defaults set the blast radius
+- The platform team's guardrails define what *can't* go wrong
+
+</div>
+
+</div>
+
+<br>
+
+> Wave 3 doesn't kill the engineer's responsibility. **It promotes every engineer to an SRE for their own agents.**
+
+---
+
+## Your name in the audit log
+
+<pre>
+2026-05-17T02:47:14Z  actor=agent/copilot-coding-agent  action=push      branch=feat/checkout-refactor
+2026-05-17T02:47:31Z  actor=agent/copilot-coding-agent  action=open_pr   pr=#4821
+2026-05-17T08:12:08Z  actor=human/jane.doe              action=review    pr=#4821 state=approved
+2026-05-17T08:12:22Z  actor=human/jane.doe              action=merge     pr=#4821 commit=sha:9f3c…
+</pre>
+
+<br>
+
+<div class="grid-2">
+
+<div class="card-soft">
+
+<h4>The agent's line</h4>
+Generated the diff.
+Ran the tests.
+Drafted the PR.
+
+</div>
+
+<div class="card">
+
+<h4>The human's line</h4>
+**Approved it. Merged it. Owns it.**
+
+</div>
+
+</div>
+
+---
+
+<!-- _class: divider -->
+
+<span class="label">Part 3</span>
+
+# The AI-Native
+# SDLC
+
+---
+
+## "AI-Native" isn't a sticker. It's a re-shape.
+
+<div class="grid-2">
+
+<div class="card-soft">
+
+<h4>AI-bolted-on</h4>
+
+- AI lives inside the editor
+- Process is unchanged
+- Humans still do every stage manually
+- Agents are an accelerator on one step
+
+</div>
+
+<div class="card">
+
+<h4>AI-native</h4>
+
+- Specs are written *for* agents to consume
+- Repos publish **AGENTS.md** with conventions, constraints, build commands
+- Tools are exposed via **MCP** with explicit scopes and consent
+- Workflows are markdown-defined and version-controlled
+- Humans gate at **decision boundaries**, not at typing speed
+
+</div>
+
+</div>
+
+---
+
+## The AI-native delivery loop
+
+<pre>
+   SPEC ───→ PLAN ───→ IMPLEMENT ───→ VERIFY ───→ SHIP ───→ OBSERVE ───→ LEARN
+    │         │           │             │           │          │            │
+  human     human +     agent (in     agent +     human     agent +      human +
+  intent    agent       sandbox)      humans     gates      humans       agent
+                          │             │           │          │            │
+                       tools via     evals,      branch     traces,     dataset
+                         MCP        red team    protection  audits      curation
+</pre>
+
+<br>
+
+<div class="grid-3">
+
+<div><h4>Agents drive</h4>Implementation, repetitive verification, observability synthesis.</div>
+
+<div><h4>Humans gate</h4>Spec intent, design trade-offs, merge approval, incident response.</div>
+
+<div><h4>Both learn</h4>Evals improve. AGENTS.md updates. The loop tightens.</div>
+
+</div>
+
+---
+
+## A story · The 3am PR
+
+<div class="grid-2">
+
+<div>
+
+<h4>The setup</h4>
+
+A small team. An overflowing backlog.
+An issue: *"Migrate the cart service to the new payment SDK."*
+
+<br>
+
+<h4>The night before</h4>
+
+The on-call assigns the issue to the coding agent.
+Adds two labels: **breaking-change-allowed: no**, **needs-design-review: yes**.
+
+</div>
+
+<div>
+
+<h4>What the agent did</h4>
+
+- Spun up a sandboxed environment
+- Read AGENTS.md and the design doc linked from the issue
+- Refactored 17 files across 3 services
+- Ran the full test matrix
+- Wrote a migration note
+- Opened a draft PR — *and stopped*
+
+<h4>What the human did at 9am</h4>
+
+Read the diff. Pushed back on one shortcut.
+Approved. Merged. **Owned it.**
+
+</div>
+
+</div>
+
+---
+
+<!-- _class: divider -->
+
+<span class="label">Part 4</span>
+
+# Human-in-the-Loop
+# is the control system
+
+---
+
+## HITL: not friction, but the control plane
+
+<br>
+
+> Three years ago, "human-in-the-loop" was a UX pattern for ML predictions.
+>
+> In 2026, it is **the safety architecture** for autonomous software delivery.
+
+<br>
+
+<div class="grid-3">
+
+<div class="card-soft">
+
+<h4>In the loop</h4>
+Human approves each decision.
+*High-stakes, low-volume.*
+
+</div>
+
+<div class="card-soft">
+
+<h4>On the loop</h4>
+Human monitors, intervenes when needed.
+*Medium-stakes, real-time.*
+
+</div>
+
+<div class="card-soft">
+
+<h4>In command</h4>
+Human sets goals, policy, and kill switches.
+*High-volume autonomy.*
+
+</div>
+
+</div>
+
+<br>
+
+The right level is a function of **stakes × reversibility × blast radius.**
+
+---
+
+## Four control surfaces of agentic delivery
+
+<div class="grid-2">
+
+<div class="card">
+
+<h4>1 · Permissions & scope</h4>
+
+- Least-privilege tokens
+- Scoped MCP servers, only what the task needs
+- **`safe-outputs`** in agentic workflows — what the agent is allowed to emit
+- Branch protection: agents cannot push to `main`
+
+</div>
+
+<div class="card">
+
+<h4>2 · Sandboxes</h4>
+
+- Ephemeral cloud environments per task
+- Sandboxed stdio MCP servers — restricted file system and network
+- No persistent secrets in the agent's workspace
+- Network egress allowlists
+
+</div>
+
+</div>
+
+<div class="grid-2">
+
+<div class="card">
+
+<h4>3 · Approval gates</h4>
+
+- Pre-merge **human review** is non-negotiable
+- Per-tool, per-session consent prompts
+- Auto-approve only for explicitly whitelisted tools
+- Tiered approvals by blast radius (touch infra? touch prod? touch customer data?)
+
+</div>
+
+<div class="card">
+
+<h4>4 · Audit & traces</h4>
+
+- Every tool call, with timestamp, input, output
+- Trajectory logs — what the agent *thought*, not just what it *did*
+- Provenance: which model, which version of AGENTS.md, which prompt
+- Tamper-evident, retained, queryable
+
+</div>
+
+</div>
+
+---
+
+## Demo · GitHub Copilot coding agent
+
+<div class="grid-13">
+
+<div>
+
+<h4>Live</h4>
+
+<span class="pill">5 min</span>
+
+</div>
+
+<div>
+
+<h4>What I'll show</h4>
+
+- Assigning an issue to the agent from the GitHub UI
+- The agent's plan, surfaced inside the issue
+- The draft PR it opens — with diff, test output, and a description it wrote itself
+- The reviewer experience: read, push back, approve
+
+<br>
+
+<h4>What to watch for</h4>
+
+- The **bounded scope** — labels and AGENTS.md shape what's allowed
+- The **audit trail** — who did what, when
+- The **moment of accountability** — your click on "Merge"
+
+</div>
+
+</div>
+
+---
+
+## Demo · A multi-agent workflow
+
+<div class="grid-13">
+
+<div>
+
+<h4>Live</h4>
+
+<span class="pill">7 min</span>
+
+</div>
+
+<div>
+
+<h4>The lineup</h4>
+
+- **Orchestrator** — decomposes the request, never writes code itself
+- **Researcher** — reads the codebase, maps dependencies
+- **Planner** — produces a DAG of work
+- **Implementer** — writes code TDD-style, in a sandbox
+- **Reviewer** / **Critic** — challenges assumptions, blocks risky changes
+- **Documentation writer** — updates AGENTS.md and the changelog
+
+<br>
+
+<h4>What to watch for</h4>
+
+- The orchestrator is a **manager**, not an engineer
+- Every sub-agent has a *single* responsibility
+- The human enters at the **plan checkpoint** and the **merge checkpoint** — nowhere else
+
+</div>
+
+</div>
+
+---
+
+<!-- _class: divider -->
+
+<span class="label">Part 5</span>
+
+# Real-world
+# practices
+
+<p style="font-size:24px;color:#94A3B8">Governance + empathy
+without slowing innovation.</p>
+
+---
+
+## AGENTS.md — the README for agents
+
+<div class="grid-2">
+
+<div>
+
+<h4>What it is</h4>
+
+A markdown file at the root of your repo that tells agents how *your* project works.
+
+<br>
+
+<h4>What goes in it</h4>
+
+- Setup commands and prerequisites
+- Code style and naming conventions
+- Test commands and coverage expectations
+- PR rules (small, conventional commits, no `main` pushes)
+- Architectural decisions agents must respect
+- Things agents **must not** do
+
+</div>
+
+<div class="card">
+
+<h4>Why it matters</h4>
+
+- Open spec — works across **20+ AI coding tools**
+- Versioned in git, reviewed like code
+- A *policy surface* the team owns together
+- The single highest-leverage artefact in an AI-native repo
+
+<br>
+
+> If your project's invariants live only in someone's head, they'll get violated. **Write them down for the agents.**
+
+</div>
+
+</div>
+
+---
+
+## MCP — the contract between agents and the world
+
+<div class="grid-2">
+
+<div>
+
+<h4>The protocol</h4>
+
+- JSON-RPC over **stdio** or **streamable HTTP**
+- Servers expose **tools**, **resources**, **prompts**
+- Clients run agents that discover and invoke them
+- Authorization via **OAuth 2.1** with per-client consent
+
+<br>
+
+<h4>What you can govern</h4>
+
+- Which tools an agent can see
+- Which actions need confirmation
+- What network and filesystem the server can touch
+- A complete audit trail of every call
+
+</div>
+
+<div class="card">
+
+<h4>Practical implications</h4>
+
+- Treat **MCP servers like microservices**: scoped, versioned, observable
+- Run untrusted servers in **sandbox mode**
+- Use the **MCP Registry** — don't install random tools
+- Enforce **enterprise policy** on which servers your org can connect to
+
+<br>
+
+<h4>2026 directions</h4>
+
+- **Async operations** for long-running tool calls
+- Maturing governance, enterprise readiness, agent-to-agent comms
+
+</div>
+
+</div>
+
+---
+
+## Agentic workflows — automation that thinks
+
+<div class="grid-2">
+
+<div>
+
+<h4>What they are</h4>
+
+Markdown files in `workflows/` that combine:
+
+- YAML frontmatter (triggers, permissions, **safe-outputs**)
+- Natural-language instructions for a coding agent
+- Compiled to GitHub Actions and run on schedule, event, or slash command
+
+<br>
+
+<h4>What they replace</h4>
+
+- The 600-line YAML you were going to write
+- The brittle scheduled scripts in cron
+- The "someone should triage these issues" backlog
+
+</div>
+
+<div class="card">
+
+<h4>Built-in guardrails</h4>
+
+- **Least-privilege permissions** by default
+- **Safe-outputs** — what the workflow is *allowed* to produce
+- No raw `.yml` checked in by hand — compiled, validated, reviewed
+- Same code review process as any other change
+
+<br>
+
+<h4>Examples in the wild</h4>
+
+- Nightly issue triage
+- Compliance scans + auto-PR for fixes
+- Daily standup digests
+- Stale-doc detection across the repo
+
+</div>
+
+</div>
+
+---
+
+## Eval-driven development
+
+<div class="grid-2">
+
+<div>
+
+<h4>The new test pyramid</h4>
+
+- **Unit & integration tests** — still here, still essential
+- **Agent evals** — golden datasets of realistic tasks the agent must complete
+- **Trajectory evals** — did the agent reason and act sensibly, not just produce the right answer?
+- **Red-team evals** — prompt injection, tool misuse, scope escape
+
+<br>
+
+<h4>The principle</h4>
+
+> Models change. Prompts change. AGENTS.md changes. **Your evals are the only thing that catches regressions.**
+
+</div>
+
+<div class="card-soft">
+
+<h4>How teams actually run it</h4>
+
+- Curate evals from real traces — your own users are the best dataset
+- Run evals on every change to prompts, models, tools, or AGENTS.md
+- Disaggregate scores by task type and by population
+- Track an **eval budget** the same way you track a performance budget
+- Block deploys on regressions, not on averages
+
+</div>
+
+</div>
+
+---
+
+## Observability for agents
+
+<div class="grid-2">
+
+<div>
+
+<h4>What you need to see</h4>
+
+- Every **tool call** — with inputs, outputs, latency, cost
+- Every **reasoning step** the agent took
+- The **prompt + context** that led to each decision
+- The **diff** between agent intent and human approval
+
+</div>
+
+<div>
+
+<h4>What you do with it</h4>
+
+- Debug failed runs by replaying trajectories
+- Detect drift when the same task starts costing more or going off-policy
+- Feed corrections back as evals — the loop tightens
+- Investigate incidents like you investigate any other production issue
+
+</div>
+
+</div>
+
+<br>
+
+> If you can't replay an agent run, you can't review your own engineering org.
+
+---
+
+## Cost, rate, and blast radius — all first-class
+
+<div class="grid-3">
+
+<div class="card">
+
+<h4>Cost</h4>
+
+- Per-agent, per-task spend caps
+- Daily and per-PR budgets
+- Alerts on runaway loops
+- A finance review for agent fleets, not just cloud bills
+
+</div>
+
+<div class="card">
+
+<h4>Rate</h4>
+
+- Concurrency limits on agent fleets
+- Tool-call rate limits per session
+- Backoff on flaky external services
+- Circuit breakers around irreversible actions
+
+</div>
+
+<div class="card">
+
+<h4>Blast radius</h4>
+
+- Production access only via human-approved playbooks
+- Write actions tiered: read-only → suggest → execute
+- Always reversible by default; irreversible by exception
+- Kill switch — and *someone whose job it is to pull it*
+
+</div>
+
+</div>
+
+---
+
+## Pre-merge human review is non-negotiable
+
+<br>
+
+<div class="grid-2">
+
+<div class="card-soft">
+
+<h4>What "review" used to mean</h4>
+
+- Read the diff
+- Maybe run it locally
+- Approve
+
+</div>
+
+<div class="card">
+
+<h4>What "review" means for an agent PR</h4>
+
+- Read the diff **and the agent's plan**
+- Inspect which tools it called and why
+- Verify it didn't widen scope beyond the issue
+- Confirm tests cover the actual change
+- Check AGENTS.md was respected
+- Approve — knowing **your name lands in the audit log**
+
+</div>
+
+</div>
+
+<br>
+
+> The hardest skill in the AI-native SDLC isn't writing code. **It's reviewing it well.**
+
+---
+
+## Empathy is engineering — for agents too
+
+<div class="grid-2">
+
+<div>
+
+<h4>Empathy for users</h4>
+
+- Whose lives does this agent touch?
+- What does it cost them if the agent is wrong?
+- Are they given a human path of appeal?
+- Does the agent explain itself, or just act?
+
+<br>
+
+<h4>Empathy for teammates</h4>
+
+- Who's drowning in review load while others ship 30 PRs a day?
+- Whose work is being attributed to whom?
+- Are juniors learning, or just rubber-stamping?
+
+</div>
+
+<div class="card">
+
+<h4>Empathy for the world the work goes into</h4>
+
+- Energy cost of fleet inference — own it, report it
+- Quality of jobs created and lost — see it clearly
+- Communities whose data trained the system — are they represented in your reviewers?
+
+<br>
+
+<h4>The principle</h4>
+
+> The team that builds with empathy ships systems that **last**. The team that doesn't, ships systems that **need to be apologised for**.
+
+</div>
+
+</div>
+
+---
+
+## Governance without gridlock
+
+| Anti-pattern | Why it fails | The agentic fix |
 |---|---|---|
-| **Human-in-the-loop** | Human approves each decision | High-stakes, low-volume |
-| **Human-on-the-loop** | Human monitors, can intervene | Medium-stakes, real-time |
-| **Human-in-command** | Human sets goals & constraints | High-volume automation |
+| Ethics review as a final gate | Too late to change anything | Encode constraints in **AGENTS.md** and evals from day one |
+| Checklist compliance | Tick-box, no real scrutiny | **Trajectory evals** that exercise the constraints |
+| Central "AI safety" team | Not embedded in delivery | Ethics champions in each squad; shared MCP catalogue |
+| "We'll fix it after launch" | Harm already done | Staged rollouts behind **feature flags + sandboxes** |
+| No rollback plan | Irreversible by accident | **Reversibility-by-design**; tiered tool permissions |
+| Manual audits | Don't scale | **Auto-generated** provenance from agent traces |
+
+---
+
+<!-- _class: divider -->
+
+<span class="label">Part 6</span>
+
+# Trustworthy
+# agentic AI
+
+<p style="font-size:24px;color:#94A3B8">Explainability · Reliability · Inclusivity
+redrawn for the age of agents.</p>
+
+---
+
+## The trust triangle, redrawn
+
+<div class="grid-3">
+
+<div class="card">
+
+<h4>Explainability</h4>
+
+<h2>Trajectory transparency</h2>
+
+What the agent thought, called, produced — visible and replayable.
+
+</div>
+
+<div class="card">
+
+<h4>Reliability</h4>
+
+<h2>Evals, guardrails, rollback</h2>
+
+Predictable behaviour under change in models, tools, prompts, and the world.
+
+</div>
+
+<div class="card">
+
+<h4>Inclusivity</h4>
+
+<h2>Access, equity, sustainability</h2>
+
+Who gets to wield this leverage — and at whose expense.
+
+</div>
+
+</div>
 
 <br>
 
-> The right level of oversight depends on **stakes × reversibility**.
+> Remove any corner and the triangle collapses. **All three must hold simultaneously.**
 
 ---
 
-## Why Machines Still Need Us
+## Explainability for agents
 
-- **Distributional shift** — the world changes; training data doesn't update itself
-- **Edge cases** — models fail silently on inputs they've never seen
-- **Values** — fairness, dignity, and ethics are *not* loss functions
-- **Accountability** — "the model decided" is not a legal or moral defence
-- **Context** — humans carry cultural, emotional, and situational nuance no dataset fully captures
-
----
-
-## The Bias Amplification Problem
-
-```
-Biased data  →  Trained model  →  Biased predictions
-     ↑                                    |
-     |___________ feedback loop __________|
-```
-
-<br>
-
-**Without human checkpoints:**
-- A hiring model trained on historical data under-ranks qualified candidates from underrepresented groups
-- A medical triage model deprioritises patients whose symptoms were historically underdocumented
-- Each new batch of data *reinforces* the original skew
-
-**Human oversight breaks the loop.**
-
----
-
-## Designing Effective Human Checkpoints
-
-✅ **Define decision boundaries upfront** — which outputs require human sign-off?
-
-✅ **Surface uncertainty explicitly** — show confidence scores, not just answers
-
-✅ **Make override easy and logged** — if overriding is painful, people skip it
-
-✅ **Avoid automation bias** — design UI so humans genuinely deliberate, not just rubber-stamp
-
-✅ **Close the feedback loop** — human corrections should retrain the model
-
----
-
-## Case Study: AI-Assisted Code Review
-
-<div class="columns">
+<div class="grid-2">
 
 <div>
 
-**Without HITL**
-- AI auto-merges PRs below a risk threshold
-- A subtle logic error passes silently
-- Production incident; no audit trail
-- "The AI approved it" — *whose fault?*
+<h4>From "show me your features" to "show me your trajectory"</h4>
+
+- Every tool call, every reasoning step, recorded
+- The PR description explains **why**, not just **what**
+- The agent surfaces its uncertainty: *"I'm guessing at the schema here — please confirm."*
+- The reviewer can replay the run, not just inspect the diff
 
 </div>
+
+<div class="card-soft">
+
+<h4>What good looks like</h4>
+
+❌ "Refactored cart service."
+
+✅ "Refactored `Cart` to extract a `PriceCalculator` because the issue called for swapping the tax engine. Touched 4 files in `services/cart/*`. Did **not** modify the database schema (out of scope). Ran the full test suite — 412 pass, 0 fail. Flagged one assumption about discount stacking; please confirm before merge."
+
+</div>
+
+</div>
+
+---
+
+## Reliability for agents
+
+<div class="grid-2">
 
 <div>
 
-**With HITL**
-- AI flags risk areas with reasoning
-- Developer reviews flagged sections
-- Decision logged with rationale
-- Continuous improvement from corrections
+<h4>Reliability ≠ "the agent was right this time"</h4>
 
-</div>
+- Predictable under model upgrades
+- Predictable under prompt churn
+- Predictable across teammates and use sites
+- Predictable when the world drifts
 
-</div>
+<h4>The SRE mindset, applied</h4>
 
-<br>
-
-> The developer's intuition caught what the model missed. **That's the point.**
-
----
-
-<!-- Divider slide -->
-<!-- _class: lead center -->
-
-# Part 2
-## Principles of Trustworthy AI
-
-*Explainability · Reliability · Inclusivity as non-negotiables*
-
----
-
-## The Trust Triangle
-
-```
-           EXPLAINABILITY
-               /\
-              /  \
-             /    \
-            /      \
-           /________\
-    RELIABILITY    INCLUSIVITY
-```
-
-<br>
-
-Remove any corner and the triangle collapses. **All three must hold simultaneously.**
-
----
-
-## Explainability — "Show Your Work"
-
-**Why it matters:**
-- Users won't trust what they can't understand
-- Regulators increasingly *require* it (EU AI Act, GDPR Art. 22)
-- Developers can't improve what they can't inspect
-
-**Practical techniques:**
-
-| Technique | Best for |
+| Classic SRE | Agentic SDLC |
 |---|---|
-| LIME / SHAP | Feature importance per prediction |
-| Attention visualisation | NLP & vision models |
-| Counterfactual explanations | "What would have changed the outcome?" |
-| Model cards | Communicating capability & limitations |
-| Natural language rationales | End-user-facing explanations |
-
----
-
-## Explainability — What Good Looks Like
-
-<br>
-
-❌ **"The loan application was denied."**
-
-<br>
-
-✅ **"The loan application was declined primarily because the debt-to-income ratio (42%) exceeded our threshold of 35%, and the credit history length (14 months) is below our 24-month minimum. Improving either factor would significantly change this outcome."**
-
-<br>
-
-> Explanation is an act of **respect** towards the person affected.
-
----
-
-## Reliability — Trustworthy Enough to Depend On
-
-**Reliability ≠ accuracy.** A model can be accurate *on average* and still fail catastrophically for specific subgroups.
-
-<br>
-
-**What reliability requires:**
-
-- **Robustness testing** — adversarial inputs, out-of-distribution data
-- **Uncertainty quantification** — the model knows what it doesn't know
-- **Graceful degradation** — fail safely, not silently
-- **Monitoring in production** — drift detection, anomaly alerting
-- **Rollback plans** — because production surprises are inevitable
-
----
-
-## Reliability — The SRE Mindset Applied to AI
-
-| Traditional SRE | AI Reliability |
-|---|---|
-| SLOs / error budgets | Model performance budgets per segment |
-| Incident response | Model degradation runbooks |
-| Chaos engineering | Adversarial & perturbation testing |
-| Observability (logs, traces, metrics) | Prediction logging, explanation logging |
-| Canary deployments | Shadow mode & staged model rollouts |
-
-<br>
-
-> **Treat your model like a production service.** Because it is one.
-
----
-
-## Inclusivity — Building for Everyone
-
-**The diversity problem in AI:**
-
-- Models trained predominantly on data from specific demographics
-- Evaluation benchmarks that don't represent global users
-- Teams that lack diversity in lived experience
-
-<br>
-
-**Inclusivity as engineering practice:**
-
-- Disaggregate metrics by demographic subgroups — don't hide behind averages
-- Conduct bias audits *before* and *after* deployment
-- Involve impacted communities in requirements, testing, and feedback
-- Apply inclusive design principles: if it works for the margins, it works for everyone
-
----
-
-## Inclusivity — The 1 Billion User Test
-
-> If your AI system were used by 1 billion people globally — across age, gender, language, ability, and economic background — **who would it fail?**
-
-<br>
-
-- Does it work in low-bandwidth environments?
-- Does it handle non-English text with equal quality?
-- Is the UI accessible to screen readers?
-- Are the training labels free of cultural assumptions?
-- Were marginalised communities consulted, or just considered?
-
----
-
-<!-- Divider slide -->
-<!-- _class: lead center -->
-
-# Part 3
-## Real-world Practices
-
-*Integrating governance and empathy into AI workflows without slowing innovation*
-
----
-
-## The False Dilemma
-
-<br>
-
-<!-- _class: center -->
-
-> "We can move fast **OR** we can be responsible."
-
-<br>
-
-### This is wrong.
-
-<br>
-
-**Responsible AI practices reduce rework, incidents, and reputational damage. They make you faster in the long run.**
-
----
-
-## Responsible AI Doesn't Have to Be Bureaucracy
-
-**It starts with three habits:**
-
-<br>
-
-**1. Ethics by Design** — raise the questions *before* the first line of code
-- What decisions will this system make?
-- Who is affected, and how?
-- What's the worst plausible failure mode?
-
-**2. Continuous Evaluation** — treat fairness like you treat test coverage
-- Not a one-time audit; a living metric
-
-**3. Graduated Autonomy** — earn trust incrementally; don't deploy full autonomy on day one
-
----
-
-## The Responsible AI Workflow
-
-```
-  DISCOVER        DESIGN          DEVELOP         DEPLOY          MONITOR
-─────────────────────────────────────────────────────────────────────────────
-  Stakeholder    Risk             Fairness        Model card      Drift
-  mapping        assessment       testing         published       detection
-
-  Impact         Explainability   Bias audit      Human          Performance
-  assessment     requirements     by subgroup     review gate    disaggregation
-
-  Data           HITL             Adversarial     Staged         Incident
-  provenance     touchpoints      testing         rollout        playbook
-```
-
----
-
-## Practical Tooling for Responsible AI
-
-<div class="columns">
-
-<div>
-
-**Fairness & Bias**
-- Fairlearn (Microsoft)
-- AI Fairness 360 (IBM)
-- What-If Tool (Google)
-- Aequitas
-
-**Explainability**
-- SHAP
-- LIME
-- InterpretML
-- Alibi Explain
+| SLOs / error budgets | Eval budgets per task class |
+| Incident response | Trajectory replay, prompt rollback |
+| Chaos engineering | Adversarial + injection testing |
+| Canary deploys | Shadow runs of new models / prompts |
 
 </div>
 
-<div>
+<div class="card">
 
-**Governance & Docs**
-- Model Cards Toolkit
-- Datasheets for Datasets
-- Responsible AI Tracker (GitHub)
+<h4>Practical guardrails</h4>
 
-**Monitoring**
-- Evidently AI
-- Arize AI
-- WhyLabs
+- **Deterministic guardrails** around irreversible actions
+- **Output validators** — schemas, lints, policy checks
+- **Tool allowlists** + per-action confirmation
+- **Rollback** at every layer: prompt, model, AGENTS.md, MCP server version
+- **Kill switch** with a named owner
 
-**Red-teaming**
-- PyRIT (Microsoft)
-- Garak
+<br>
+
+> Treat your agents like a production service. **Because they are one.**
 
 </div>
 
@@ -561,77 +1509,229 @@ Remove any corner and the triangle collapses. **All three must hold simultaneous
 
 ---
 
-## Empathy as an Engineering Skill
+## Inclusivity for agents
 
-**Empathy isn't soft — it's a requirement for correct systems.**
-
-<br>
-
-- **User research before training** — understand the humans your data represents
-- **Persona-driven red-teaming** — who is most likely to be harmed by an error?
-- **Affected community feedback loops** — not just user testing, but *community* testing
-- **Ethics champions on the team** — someone whose job includes asking uncomfortable questions
-- **Retrospectives on AI failures** — blameless, learning-focused, systemic
-
----
-
-## Governance Without Gridlock
-
-**Common failure modes:**
-
-| Pattern | Problem | Fix |
-|---|---|---|
-| Ethics review as final gate | Caught too late to change anything | Shift left — review at design |
-| Checklist compliance | Tick-box mentality, no real scrutiny | Outcome-based criteria |
-| Siloed AI safety team | Not embedded in delivery | Ethics champions in squads |
-| "We'll fix it after launch" | Harm is already done | Staged, monitored rollouts |
-| No rollback plan | Irreversible harm | Reversibility as a design constraint |
-
----
-
-## What Developers Can Do Right Now
-
-🔍 **Ask the hard question early:** "What's the worst this could do?"
-
-📊 **Disaggregate your metrics** — overall accuracy hides subgroup failures
-
-📝 **Write a model card** — even a one-pager forces you to be honest
-
-🔁 **Build feedback loops** — user corrections should reach the model
-
-🛑 **Define your kill switch** — what triggers a rollback, and who can pull it?
-
-🤝 **Include impacted communities** — before launch, not after the incident
-
-🧪 **Red-team your own system** — find the failures before adversaries do
-
----
-
-## Trust Is an Emergent Property
-
-You cannot install trust as a feature. It **emerges** from:
-
-<br>
-
-<div class="columns">
+<div class="grid-2">
 
 <div>
 
-- Consistent, explainable behaviour
-- Honest communication about limitations
-- Rapid, transparent response to failures
-- Demonstrable fairness across groups
-- Human oversight that *actually* works
+<h4>Who can wield this leverage?</h4>
+
+- The senior engineer with a paid plan and a GPU budget?
+- The student on a flaky connection?
+- The contributor working in a language under-represented in the model?
+- The team in a region where the data centre lives elsewhere?
+
+<br>
+
+<h4>Who reviews the agent's work?</h4>
+
+- If the review bench is homogenous, the agent's blind spots become **your** blind spots.
+- Diverse reviewers are not a *nice-to-have*. They are an **error-correction mechanism**.
+
+</div>
+
+<div class="card">
+
+<h4>The billion-user test, agentic edition</h4>
+
+If a billion developers used this agent across language, ability, region, and economic background — **who would it fail?**
+
+<br>
+
+- Does AGENTS.md assume English-only contributors?
+- Do your evals reflect non-Western codebases and conventions?
+- Is the tooling usable on a low-bandwidth connection?
+- Does the cost model price out individual maintainers and OSS contributors?
+- Is the energy bill of the fleet honest in your sustainability reports?
+
+</div>
+
+</div>
+
+---
+
+<!-- _class: divider -->
+
+<span class="label">Part 7</span>
+
+# The fleet
+
+<p style="font-size:24px;color:#94A3B8">Your job changed
+while you weren't looking.</p>
+
+---
+
+## A story · From six humans to six + twenty-four agents
+
+<div class="grid-2">
+
+<div>
+
+<h4>The before</h4>
+
+- 6 engineers, one platform service
+- 18-month backlog
+- Constant context-switching
+- Burnout creeping in
+
+<br>
+
+<h4>The decision</h4>
+
+Stop trying to type faster.
+Start **conducting**.
+
+</div>
+
+<div class="card">
+
+<h4>The after</h4>
+
+- Same 6 engineers
+- ~24 standing agents:
+  triagers, doc-writers, dependency upgraders, test-fillers, release-noters, security-scanners, accessibility-checkers
+- Every agent has an **owner** and a **scope**
+- Every agent's work is **reviewed by a human** before merge
+
+<br>
+
+<h4>What changed for the team</h4>
+
+- The work became more strategic, not more stressful
+- Reviews became the craft — *taste* mattered more than typing
+- The on-call rotation shrunk because the doc agent kept the runbooks fresh
+
+</div>
+
+</div>
+
+---
+
+## The conductor's new job
+
+<div class="grid-2">
+
+<div class="card">
+
+<h4>Skills that compound</h4>
+
+- **System design** — the agent can write code; only you can architect
+- **Spec writing** — clear intent is the new programming
+- **Review craft** — your judgement is the last line of defence
+- **Eval design** — what does "good" mean for *this* task?
+- **Tool curation** — which MCP servers, which scopes, which models
+- **Coaching the fleet** — AGENTS.md, prompts, post-mortems
+
+</div>
+
+<div class="card-soft">
+
+<h4>Skills that fade</h4>
+
+- Rote boilerplate
+- Mechanical refactors
+- Copy-paste-from-StackOverflow
+- One-off scripts you'll never reuse
+- Manual changelog writing
+- Hand-rolled YAML
+
+<br>
+
+<em>(They don't disappear. They just stop being where your value lives.)</em>
+
+</div>
+
+</div>
+
+---
+
+## Guiding the fleet — a working pattern
+
+<pre>
+1. INTENT        Write the issue. Be specific. Link the design doc.
+2. POLICY        Apply labels. Set scope, blast radius, approval tier.
+3. DELEGATE      Assign to the agent (or a multi-agent workflow).
+4. OBSERVE       Watch the plan. Check the trajectory. Intervene early if needed.
+5. REVIEW        Read the diff. Inspect the tool calls. Push back. Approve.
+6. OWN           Merge. Your name is on it now.
+7. LEARN         Feed the trace into evals. Update AGENTS.md if the agent struggled.
+</pre>
+
+<br>
+
+> This is not "let the agent do it." This is **engineering management applied to a non-human teammate**.
+
+---
+
+<!-- _class: divider -->
+
+<span class="label">Close</span>
+
+# What we're
+# actually building
+
+---
+
+## The stakes are different now
+
+<div class="grid-2">
+
+<div>
+
+<h4>What's at stake when an agent ships code</h4>
+
+- Production reliability for real users
+- Security posture of your supply chain
+- Compliance & audit-ability
+- Trust between you and the humans who depend on the service
+- The careers of the people on the team
+- The reputation of the org
+
+</div>
+
+<div class="card-soft">
+
+<h4>What's *not* at stake</h4>
+
+- The novelty of "look, AI wrote code!"
+- Headlines about productivity multipliers
+- Whether your team adopted the agent first
+
+<br>
+
+> The competition isn't who ships fastest with agents. **It's who ships responsibly at scale, repeatedly, for years.**
+
+</div>
+
+</div>
+
+---
+
+## The opportunity
+
+<div class="grid-2">
+
+<div>
+
+<h4>Teams that get this right</h4>
+
+- Compounding leverage without compounding incidents
+- Engineers doing more of the work *only humans can do*
+- Codebases that stay healthy under fleet-scale change
+- Audit trails that hold up under scrutiny
+- A culture where saying "let's slow that agent down" is rewarded, not punished
 
 </div>
 
 <div>
 
-- Accountability that goes beyond PR statements
-- Continuous improvement, publicly tracked
-- Communities feeling heard, not just studied
-- Engineers who feel safe raising concerns
-- Leadership that rewards the right incentives
+<h4>Engineers who get this right</h4>
+
+- Become indispensable conductors, not commodity typists
+- Build a reputation for **judgement** — the most durable skill in tech
+- Sleep better at night because **Rule Zero** isn't a slogan, it's a habit
+- Mentor the next generation into a discipline that didn't exist five years ago
 
 </div>
 
@@ -639,100 +1739,99 @@ You cannot install trust as a feature. It **emerges** from:
 
 ---
 
-## The Stakes Are Real
+<!-- _class: lead -->
 
-- **Healthcare:** AI triage that systematically underserves certain populations
-- **Criminal justice:** Risk-scoring tools that encode historical bias
-- **Hiring:** Resume screeners that replicate past discrimination
-- **Credit:** Loan models with proxy variables for protected characteristics
-- **Content moderation:** Systems that suppress marginalised voices disproportionately
+<h1 style="font-size:108px;line-height:1;">Trust is still
+<br>the ultimate feature.</h1>
 
 <br>
 
-> These aren't hypotheticals. They are documented cases. **What we build has consequences.**
+<p style="font-size:30px;color:#FFFFFF;">It is not a switch you flip before shipping.
+<br>It is a property your fleet earns —
+<br><strong>through every audit log entry that has your name on it.</strong></p>
 
 ---
 
-## The Opportunity
+## Your starter checklist for Monday morning
 
-<div class="columns">
+<div class="grid-2">
+
+<div class="card">
+
+<h4>In your repo</h4>
+
+- [ ] Write or update **AGENTS.md** — even a one-pager
+- [ ] Turn on **branch protection**; require human review on every PR
+- [ ] Set up an **agent-assignable label** for clearly-scoped issues
+- [ ] Define what your agents are **not** allowed to touch
+- [ ] Curate a small **MCP catalogue** with explicit scopes
+- [ ] Add **trajectory + tool-call logging** if you don't have it
+
+</div>
+
+<div class="card">
+
+<h4>In your team</h4>
+
+- [ ] Agree on **Rule Zero** out loud
+- [ ] Name an owner for each standing agent / workflow
+- [ ] Build a tiny **eval set** from your last 10 real tasks
+- [ ] Schedule a monthly **agent retro** — what shipped, what surprised, what to tighten
+- [ ] Plan a **kill switch drill** — make sure you can stop the fleet
+- [ ] Talk about **review craft** like you talk about code craft
+
+</div>
+
+</div>
+
+---
+
+## Going deeper
+
+<div class="grid-3">
 
 <div>
 
-**AI systems that earn trust:**
+<h4>Specs & standards</h4>
 
-- Are used, not abandoned
-- Scale without causing harm at scale
-- Survive regulatory scrutiny
-- Attract users *and* talent
-- Create genuine, lasting value
+- AGENTS.md (open spec)
+- Model Context Protocol (MCP)
+- MCP Registry
+- GitHub Agentic Workflows
+- NIST AI RMF · EU AI Act
 
 </div>
 
 <div>
 
-**Developers who build them:**
+<h4>Practical patterns</h4>
 
-- Sleep better at night
-- Build longer-lasting careers
-- Contribute to a healthier ecosystem
-- Demonstrate that *engineering ethics* is not an oxymoron
+- Multi-agent orchestrator + sub-agents
+- Trajectory & tool-call observability
+- Eval-driven dev
+- Safe-outputs in CI workflows
+- Sandboxed MCP servers
 
 </div>
 
-</div>
+<div>
 
----
+<h4>Communities</h4>
 
-<!-- _class: lead center -->
-
-# Trust Is the Ultimate Feature
-
-<br>
-
-*Not a toggle you flip before shipping.*
-*A property you earn through every decision.*
-
----
-
-## Your Actionable Checklist
-
-- [ ] Map stakeholders and affected communities *before* design
-- [ ] Define HITL touchpoints and decision boundaries
-- [ ] Require explainability at the interface — for users *and* operators
-- [ ] Disaggregate evaluation metrics by demographic subgroup
-- [ ] Publish a model card (even a draft is better than nothing)
-- [ ] Build a staged rollout with monitoring and rollback criteria
-- [ ] Schedule bias audits on a cadence, not just at launch
-- [ ] Create a safe channel for raising ethical concerns on your team
-- [ ] Red-team with diverse personas before deployment
-- [ ] Close the feedback loop — corrections should reach the model
-
----
-
-## Further Reading & Resources
-
-**Frameworks & Guidelines**
-- Microsoft Responsible AI Standard
-- EU AI Act (2024)
-- NIST AI Risk Management Framework
-- Google People + AI Research (PAIR) Guidebook
-
-**Communities**
+- Awesome Copilot (open community catalogue)
+- MCP working groups
 - Partnership on AI
-- AlgorithmWatch
-- Distributed AI Research Institute (DAIR)
+- DAIR · AlgorithmWatch
 
-**Essential Reading**
-- *Weapons of Math Destruction* — Cathy O'Neil
-- *Atlas of AI* — Kate Crawford
-- *The Alignment Problem* — Brian Christian
+</div>
+
+</div>
 
 ---
 
-<!-- _class: lead center -->
+<!-- _class: lead -->
 
-## Thank You
+<h1>Thank you.</h1>
 
 <br>
 
@@ -741,23 +1840,17 @@ You cannot install trust as a feature. It **emerges** from:
 
 <br>
 
-> *"In the age of AI, trust is the ultimate feature."*
+<p style="font-size:26px;color:#FFFFFF;">In the age of agents, <strong>your name on the merge button</strong>
+<br>is still the most important line of code.</p>
 
 <br>
 
-**Slides & resources:** [link]
+<span class="pill">Slides</span> <span class="pill">Demo repos</span> <span class="pill">Eval starter pack</span>
 
 ---
 
-<!-- _class: center -->
+<!-- _class: quote -->
 
-# Q & A
+> Q & A
 
-<br>
-
-*What questions do you have?*
-
-<br>
-
-> The best AI systems are built by people who keep asking:
-> **"Who might this harm, and what are we doing about it?"**
+<div class="attrib">The best agentic teams keep asking:<br><strong>"Who owns this — and would we be proud of the audit log?"</strong></div>
