@@ -10,24 +10,24 @@ style: |
     padding: 48px 60px;
   }
   h1 {
-    color: #58a6ff;
+    color: #248086;
     font-size: 2.2em;
-    border-bottom: 2px solid #21262d;
+    border-bottom: 2px solid #099c84;
     padding-bottom: 12px;
   }
   h2 {
-    color: #79c0ff;
+    color: #502e8f;
     font-size: 1.6em;
   }
   h3 {
-    color: #d2a8ff;
+    color: #5a30f1;
     font-size: 1.2em;
   }
   strong {
-    color: #ffa657;
+    color: #1ed665;
   }
   em {
-    color: #a5d6ff;
+    color: #02062b;
   }
   blockquote {
     border-left: 4px solid #58a6ff;
